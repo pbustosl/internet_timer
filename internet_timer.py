@@ -6,8 +6,8 @@ import time
 
 import json
 
-hostName = "localhost"
-hostPort = 9001
+host_name = "0.0.0.0"
+host_port = 9001
 time_limit = datetime.now() + timedelta(days = -1)
 
 class MyServer(BaseHTTPRequestHandler):
@@ -55,7 +55,7 @@ class MyServer(BaseHTTPRequestHandler):
     self.set_time_limit(int(postvars[b'minutes'][0]))
     self.write_page()
 
-myServer = HTTPServer((hostName, hostPort), MyServer)
+myServer = HTTPServer((host_name, host_port), MyServer)
 
 try:
   myServer.serve_forever()
