@@ -1,0 +1,14 @@
+# location: /etc/systemd/system/internet_timer.service
+[Unit]
+Description=Internet Timer
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+Type=simple
+Restart=no
+ExecStart=/usr/local/bin/internet_timer.sh
+
+[Install]
+WantedBy=multi-user.target
