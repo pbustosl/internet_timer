@@ -24,7 +24,7 @@ class MyServer(BaseHTTPRequestHandler):
     self.send_header("Content-type", "text/html")
     self.end_headers()
     self.wfile.write(f.read())
-    self.wfile.write(bytes(f'<p>time limit: {time_limit}</p>',"utf-8"))
+    self.wfile.write(bytes(f'<p>time limit:<br>{time_limit.strftime("%m/%d/%Y %H:%M:%S")}</p>',"utf-8"))
     f.close()
 
   def do_GET(self):
